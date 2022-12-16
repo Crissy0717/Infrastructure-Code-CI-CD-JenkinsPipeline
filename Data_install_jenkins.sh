@@ -1,4 +1,6 @@
 #!/bin/bash
+echo "manual patching of the jenkins server"
+
 sudo yum -y update
 
 sudo yum update -y
@@ -15,7 +17,7 @@ sudo systemctl enable httpd
 
 sudo systemctl is-enabled httpd
 
-echo "Install Java JDK 8"
+echo "Install Java JDK 11"
 sudo yum remove -y java
 sudo amazon-linux-extras install java-openjdk11
 
@@ -27,6 +29,7 @@ yum install -y git
 
 amazon-linux-extras install epel
 yum update -y
+echo "configuration management tool"
 yum install ansible -y
 yum install nginx -y
 yum install python-pip -y  
@@ -48,7 +51,7 @@ yum update -y
 yum install docker -y
 systemctl start docker
 systemctl enable docker
-systemctl status docker
+#systemctl status docker
 #sudo usermod -a -G docker jenkins
 #sudo service docker start
 sudo chkconfig docker on
