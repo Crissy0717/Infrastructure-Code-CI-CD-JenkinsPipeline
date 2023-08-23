@@ -29,7 +29,7 @@ resource "aws_lb_target_group" "external-alb" {
 resource "aws_lb_target_group_attachment" "attachment" {
   target_group_arn = "${aws_lb_target_group.external-alb.arn}"
   target_id        = "${aws_instance.jenkins-instance.id}"
-  port             = 80
+  port             = 443
 
   depends_on = [
     aws_instance.jenkins-instance,
